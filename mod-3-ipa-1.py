@@ -162,7 +162,7 @@ def vigenere_cipher(message, key):
             else:
                 cipher_text.append(chr(x))
         return ("".join(cipher_text))
-    elif len(message) == len(key): 
+    else: #len(message) == len(key), len is<key 
         for i in range(len(message)):
             n = (ord(message[i]) +ord(key[i])) % 26
             y=n+ord('A')
@@ -170,16 +170,7 @@ def vigenere_cipher(message, key):
                 cipher_text.append(" ")
             else:
                 cipher_text.append(chr(y))
-        return("" . join(cipher_text))
-    else: 
-        for i in range(len(message)):
-            g = (ord(message[i]) +ord(key[i])) % 26
-            w=g+ord('A')
-            if message[i]== " ":
-                cipher_text.append(" ")
-            else:
-                cipher_text.append(chr(w))
-        return("" . join(cipher_text))
+        return("" . join(cipher_text)
 
 def scytale_cipher(message, shift):
     '''Scytale Cipher.
