@@ -37,7 +37,17 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    for ch in letter:
+        if ch.isalpha():
+            alphabet_stay = ord(ch) + shift 
+            if alphabet_stay > ord('Z'):
+                alphabet_corrector= 64+alphabet_stay-ord('Z')
+                return chr(alphabet_corrector)
+            else: 
+                return chr(alphabet_stay)
+        else:
+            len(letter) ==0 and len(shift)==0
+            return " "
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher. 
@@ -59,7 +69,14 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    encrypted= "" 
+    for ch in message:
+        if ch.isupper(): 
+            ch_number= ord(ch)-ord('A')
+            ch_shifted= (ch_number+shift)%26+ord("A")
+            ch_new= chr(ch_shifted)
+        encrypted += ch_new
+    return encrypted
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter. 
@@ -89,7 +106,17 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    for ch in letter:
+        if ch.isalpha():
+            alphabet_stay = ord(ch) + (ord(letter_shift)-65) 
+            if alphabet_stay > ord('Z'):
+                alphabet_corrector= 64+alphabet_stay-ord('Z')
+                return chr(alphabet_corrector)
+            else: 
+                return chr(alphabet_stay)
+        else:
+            len(letter) ==0 and len(letter_shift)==0
+            return " "
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
@@ -122,7 +149,28 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    key=list(key)
+    cipher_text=[]
+    if len(message)>len(key): 
+        for i in range(len(message)):
+            key.append(key[i % len(key)])
+            lengthened_key=key
+            m = (ord(message[i]) +ord(lengthened_key[i])) % 26
+            x=m+ord('A')
+            if message[i]== " ":
+                cipher_text.append(" ")
+            else:
+                cipher_text.append(chr(x))
+        return ("".join(cipher_text))
+    else: #len(message) == len(key), len is<key 
+        for i in range(len(message)):
+            n = (ord(message[i]) +ord(key[i])) % 26
+            y=n+ord('A')
+            if message[i]== " ":
+                cipher_text.append(" ")
+            else:
+                cipher_text.append(chr(y))
+        return("" . join(cipher_text))
 
 def scytale_cipher(message, shift):
     '''Scytale Cipher.
@@ -176,7 +224,14 @@ def scytale_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    cipher_text=[]
+    if len(message)%shift!=0:
+        while len(message)%shift!=0: 
+            message+="_"
+    for i in range(len(message)): 
+        x=(i // shift) + (len(message) // shift) * (i % shift)
+        cipher_text.append(message[x])
+    return("".join(cipher_text))
 
 def scytale_decipher(message, shift):
     '''Scytale De-cipher.
@@ -205,4 +260,14 @@ def scytale_decipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    if len(message)%(len(message) // shift)==0:
+        shift= len(message)//shift
+        cipher_text=[]
+        if len(message)%shift!=0:
+            while len(message)%shift!=0: 
+                message+="_"
+        for i in range(len(message)): 
+            x=(i // shift) + (len(message) // shift) * (i % shift)
+            cipher_text.append(message[x])
+        return("".join(cipher_text))
+

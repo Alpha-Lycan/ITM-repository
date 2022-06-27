@@ -76,7 +76,7 @@ def caesar_cipher(message, shift):
             ch_shifted= (ch_number+shift)%26+ord("A")
             ch_new= chr(ch_shifted)
         encrypted += ch_new
-    return encrypted  
+    return encrypted
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter. 
@@ -170,7 +170,7 @@ def vigenere_cipher(message, key):
                 cipher_text.append(" ")
             else:
                 cipher_text.append(chr(y))
-        return("" . join(cipher_text)
+        return("" . join(cipher_text))
 
 def scytale_cipher(message, shift):
     '''Scytale Cipher.
@@ -260,7 +260,7 @@ def scytale_decipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-     if len(message)%(len(message) // shift)==0:
+    if len(message)%(len(message) // shift)==0:
         shift= len(message)//shift
         cipher_text=[]
         if len(message)%shift!=0:
