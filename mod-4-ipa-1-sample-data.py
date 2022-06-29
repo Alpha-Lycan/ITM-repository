@@ -44,6 +44,11 @@ social_graph = {
 Sample data for Tic Tac Toe below:
 '''
 
+
+argem=[0,1,2,3,4]
+
+
+
 board1 = [
 ['X','X','O'],
 ['O','X','O'],
