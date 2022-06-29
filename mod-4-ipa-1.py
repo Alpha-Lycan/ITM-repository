@@ -4,7 +4,7 @@ Parsing Data
 
 This assignment covers your ability to manipulate data in Python.
 '''
-
+print('Hello World')    
 def relationship_status(from_member, to_member, social_graph):
     '''Relationship Status.
     20 points.
@@ -41,8 +41,67 @@ def relationship_status(from_member, to_member, social_graph):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    
+    social_graph = {
+        "@bongolpoc":{"first_name":"Joselito",
+                      "last_name":"Olpoc",
+                      "following":[
+                      ]
+        },
+        "@joaquin":  {"first_name":"Joaquin",
+                      "last_name":"Gonzales",
+                      "following":[
+                          "@chums","@jobenilagan"
+                      ]
+        },
+        "@chums" : {"first_name":"Matthew",
+                    "last_name":"Uy",
+                    "following":[
+                        "@bongolpoc","@miketan","@rudyang","@joeilagan"
+                    ]
+        },
+        "@jobenilagan":{"first_name":"Joben",
+                       "last_name":"Ilagan",
+                       "following":[
+                        "@eeebeee","@joeilagan","@chums","@joaquin"
+                       ]
+        },
+        "@joeilagan":{"first_name":"Joe",
+                      "last_name":"Ilagan",
+                      "following":[
+                        "@eeebeee","@jobenilagan","@chums"
+                      ]
+        },
+        "@eeebeee":  {"first_name":"Elizabeth",
+                      "last_name":"Ilagan",
+                      "following":[
+                        "@jobenilagan","@joeilagan"
+                      ]
+        },
+    }
+    
+    from_member_following=(social_graph.get(from_member)).get("following")
+    to_member_following=(social_graph.get(to_member)).get("following")
+    follower= False 
+    followed_by= False 
+    friends= False 
+    no_relationship= False 
+    for username in from_member_following: 
+        if username==to_member: 
+            follower= True 
 
+    for username in to_member_following:
+        if username==from_member:
+            followed_by=True 
+
+    if follower==True and followed_by==True: 
+        return('friends')
+    elif follower == True and followed_by==False:
+        return('follower')
+    elif follower== False and followed_by==True:
+        return('followed by')
+    else:
+        return('no relationship')
 
 def tic_tac_toe(board):
     '''Tic Tac Toe. 
@@ -70,7 +129,68 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+
+    board1 = [
+    ['X','X','O'],
+    ['O','X','O'],
+    ['O','','X'],
+    ]
+
+    board2 = [
+    ['X','X','O'],
+    ['O','X','O'],
+    ['','O','X'],
+    ]
+
+    board3 = [
+    ['O','X','O'],
+    ['','O','X'],
+    ['X','X','O'],
+    ]
+
+    board4 = [
+    ['X','X','X'],
+    ['O','X','O'],
+    ['O','','O'],
+    ]
+
+    board5 = [
+    ['X','X','O'],
+    ['O','X','O'],
+    ['X','','O'],
+    ]
+
+    board6 = [
+    ['X','X','O'],
+    ['O','X','O'],
+    ['X','',''],
+    ]
+
+    board7 = [
+    ['X','X','O',''],
+    ['O','X','O','O'],
+    ['X','','','O'],
+    ['O','X','','']
+    ]    
+    
+    winner=""
+    caseholder=[]
+    boarddim=len(board)
+    upper_left_to_lower_right=[board[i][i] for i in range(boarddim)]
+    caseholder.append(upper_left_to_lower_right)
+    lower_left_to_upper_right= [board[boarddim-1-i][i] for i in range(boarddim)]
+    caseholder.append(lower_left_to_upper_right)
+    columns=[i for i in zip(*board)]
+    column_list=[caseholder.append(col) for col in columns]
+    #add the board itself
+    [caseholder.append(row) for row in board]
+    for case in caseholder: 
+        bool=all(j == case[0] for j in case)
+        if bool==True:
+            winner=case[0]
+            return(winner)
+    if winner=='':
+        return('NO WINNER')
 
 def eta(first_stop, second_stop, route_map):
     '''ETA. 
@@ -103,4 +223,45 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+
+    legs = {
+         ("upd","admu"):{
+             "travel_time_mins":10
+         },
+         ("admu","dlsu"):{
+             "travel_time_mins":35
+         },
+         ("dlsu","upd"):{
+             "travel_time_mins":55
+         }
+    }
+
+    legs2 = {
+        ('a1', 'a2'): {
+            'travel_time_mins': 10
+        },
+        ('a2', 'b1'): {
+            'travel_time_mins': 10230
+        },
+        ('b1', 'a1'): {
+            'travel_time_mins': 1
+        }
+    }
+
+
+    if (first_stop, second_stop) in route_map:
+        case1=(route_map.get((first_stop, second_stop))).get('travel_time_mins')
+        return(case1)
+
+    time=0
+    for key in route_map.keys(): 
+        if key[0]==first_stop:
+            base_travel_time=(route_map.get(key)).get('travel_time_mins')
+            time+=base_travel_time
+            if key[1]==second_stop:
+                return(time)
+            first_stop= key[1]
+    return(time)
+
+
+

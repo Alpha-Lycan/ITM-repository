@@ -1,7 +1,6 @@
 '''
 Sample data for Relationship Status below:
 '''
-
 social_graph = {
     "@bongolpoc":{"first_name":"Joselito",
                   "last_name":"Olpoc",
@@ -45,7 +44,7 @@ Sample data for Tic Tac Toe below:
 '''
 
 
-argem=[0,1,2,3,4]
+
 
 
 
@@ -110,7 +109,7 @@ legs = {
      }
 }
 
-legs = {
+legs2 = {
     ('a1', 'a2'): {
         'travel_time_mins': 10
     },
