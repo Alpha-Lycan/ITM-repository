@@ -3,8 +3,7 @@
 Parsing Data
 
 This assignment covers your ability to manipulate data in Python.
-'''
-print('Hello World')    
+'''  
 def relationship_status(from_member, to_member, social_graph):
     '''Relationship Status.
     20 points.
