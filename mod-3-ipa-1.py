@@ -4,6 +4,7 @@ Thinking Like a Programmer
 
 This assignment covers your intermediate proficiency with Python.
 '''
+
 def shift_letter(letter, shift):
     '''Shift Letter. 
     5 points.
@@ -38,9 +39,9 @@ def shift_letter(letter, shift):
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     for ch in letter:
         if ch.isalpha():
-            alphabet_stay = ord(ch) + shift 
+            alphabet_stay = ord(ch) + (shift%26)
             if alphabet_stay > ord('Z'):
-                alphabet_corrector= 64+alphabet_stay-ord('Z')
+                alphabet_corrector= (64+alphabet_stay-ord('Z'))
                 return chr(alphabet_corrector)
             else: 
                 return chr(alphabet_stay)
@@ -74,7 +75,7 @@ def caesar_cipher(message, shift):
     for i in range(message_length):  
         char = message[i]  
         if (char.isupper()):  
-            encrypted += chr((ord(char) + shift - 64) % 26 + 64) 
+            encrypted += chr((ord(char) + (shift%26) - 64) % 26 + 64) 
         elif char.isspace(): 
             encrypted+=" "
     return(encrypted)
