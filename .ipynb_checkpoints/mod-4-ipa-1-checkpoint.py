@@ -3,8 +3,7 @@
 Parsing Data
 
 This assignment covers your ability to manipulate data in Python.
-'''
-print('Hello World')    
+'''  
 def relationship_status(from_member, to_member, social_graph):
     '''Relationship Status.
     20 points.
@@ -42,43 +41,7 @@ def relationship_status(from_member, to_member, social_graph):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     
-    social_graph = {
-        "@bongolpoc":{"first_name":"Joselito",
-                      "last_name":"Olpoc",
-                      "following":[
-                      ]
-        },
-        "@joaquin":  {"first_name":"Joaquin",
-                      "last_name":"Gonzales",
-                      "following":[
-                          "@chums","@jobenilagan"
-                      ]
-        },
-        "@chums" : {"first_name":"Matthew",
-                    "last_name":"Uy",
-                    "following":[
-                        "@bongolpoc","@miketan","@rudyang","@joeilagan"
-                    ]
-        },
-        "@jobenilagan":{"first_name":"Joben",
-                       "last_name":"Ilagan",
-                       "following":[
-                        "@eeebeee","@joeilagan","@chums","@joaquin"
-                       ]
-        },
-        "@joeilagan":{"first_name":"Joe",
-                      "last_name":"Ilagan",
-                      "following":[
-                        "@eeebeee","@jobenilagan","@chums"
-                      ]
-        },
-        "@eeebeee":  {"first_name":"Elizabeth",
-                      "last_name":"Ilagan",
-                      "following":[
-                        "@jobenilagan","@joeilagan"
-                      ]
-        },
-    }
+
     
     from_member_following=(social_graph.get(from_member)).get("following")
     to_member_following=(social_graph.get(to_member)).get("following")
@@ -130,49 +93,7 @@ def tic_tac_toe(board):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
 
-    board1 = [
-    ['X','X','O'],
-    ['O','X','O'],
-    ['O','','X'],
-    ]
 
-    board2 = [
-    ['X','X','O'],
-    ['O','X','O'],
-    ['','O','X'],
-    ]
-
-    board3 = [
-    ['O','X','O'],
-    ['','O','X'],
-    ['X','X','O'],
-    ]
-
-    board4 = [
-    ['X','X','X'],
-    ['O','X','O'],
-    ['O','','O'],
-    ]
-
-    board5 = [
-    ['X','X','O'],
-    ['O','X','O'],
-    ['X','','O'],
-    ]
-
-    board6 = [
-    ['X','X','O'],
-    ['O','X','O'],
-    ['X','',''],
-    ]
-
-    board7 = [
-    ['X','X','O',''],
-    ['O','X','O','O'],
-    ['X','','','O'],
-    ['O','X','','']
-    ]    
-    
     winner=""
     caseholder=[]
     boarddim=len(board)
@@ -224,29 +145,6 @@ def eta(first_stop, second_stop, route_map):
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
 
-    legs = {
-         ("upd","admu"):{
-             "travel_time_mins":10
-         },
-         ("admu","dlsu"):{
-             "travel_time_mins":35
-         },
-         ("dlsu","upd"):{
-             "travel_time_mins":55
-         }
-    }
-
-    legs2 = {
-        ('a1', 'a2'): {
-            'travel_time_mins': 10
-        },
-        ('a2', 'b1'): {
-            'travel_time_mins': 10230
-        },
-        ('b1', 'a1'): {
-            'travel_time_mins': 1
-        }
-    }
 
 
     if (first_stop, second_stop) in route_map:
