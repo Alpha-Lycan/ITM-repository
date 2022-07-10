@@ -105,11 +105,18 @@ def tic_tac_toe(board):
     column_list=[caseholder.append(col) for col in columns]
     #add the board itself
     [caseholder.append(row) for row in board]
+    print(caseholder)
     for case in caseholder: 
-        bool=all(j == case[0] for j in case)
-        if bool==True:
+      
+        boolean=all(j == case[0] for j in case)
+       
+        if boolean==True:
             winner=case[0]
-            return(winner)
+            if winner=='':
+                return('NO WINNER')
+            else:
+                return(winner)
+        
     if winner=='':
         return('NO WINNER')
 
@@ -150,16 +157,21 @@ def eta(first_stop, second_stop, route_map):
     if (first_stop, second_stop) in route_map:
         case1=(route_map.get((first_stop, second_stop))).get('travel_time_mins')
         return(case1)
+    solutionfound=False
+    
 
     time=0
-    for key in route_map.keys(): 
-        if key[0]==first_stop:
-            base_travel_time=(route_map.get(key)).get('travel_time_mins')
-            time+=base_travel_time
-            if key[1]==second_stop:
-                return(time)
-            first_stop= key[1]
+    while not solutionfound:
+        for key in route_map.keys(): 
+            if key[0]==first_stop:
+                base_travel_time=(route_map.get(key)).get('travel_time_mins')
+                time+=base_travel_time
+                if key[1]==second_stop:
+                    solutionfound=True
+                    return(time)
+                first_stop= key[1]
     return(time)
+
 
 
 
